@@ -8,8 +8,12 @@ using UnityEngine;
 [RequireComponent(typeof(TMP_Text))]
 public class TypewriterEffect : MonoBehaviour
 {
+    public static TypewriterEffect Instance ;
+
+    
     TMP_Text _textBox;
 
+    
     // Typewriter Functionality
     int _currentVisibleCharacterIndex;
     Coroutine _typewriterCoroutine;

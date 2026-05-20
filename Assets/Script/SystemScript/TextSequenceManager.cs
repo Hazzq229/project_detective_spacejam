@@ -7,11 +7,12 @@ public class TextSequenceManager : MonoBehaviour
 {
     [Header("Sequence Data")]
     [TextArea(3, 5)]
-    [SerializeField] List<string> _dialogueLines;
-    [SerializeField] GameObject _nextIndicator;
 
-    int _currentIndex = 0;
-    bool _isWaitingForNext = false;
+    [SerializeField] protected List<string> _dialogueLines;
+    [SerializeField] protected GameObject _nextIndicator;
+    
+    protected int _currentIndex = 0;
+    protected bool _isWaitingForNext = false;
 
     void OnEnable()
     {
@@ -25,13 +26,15 @@ public class TextSequenceManager : MonoBehaviour
         GameplayEvents.OnFadeOutComplete -= StartSequence;
     }
 
-    void StartSequence()
+    protected void StartSequence()
     {
         if (_nextIndicator != null) 
             _nextIndicator.SetActive(false);
 
         if (_dialogueLines.Count > 0)
         {
+            
+            
             PlayLine(_currentIndex);
         }
     }
@@ -46,14 +49,14 @@ public class TextSequenceManager : MonoBehaviour
         }
     }
 
-    void HandleTextCompleted()
+    protected void HandleTextCompleted()
     {
         _isWaitingForNext = true;
         if (_nextIndicator != null) 
             _nextIndicator.SetActive(true);
     }
 
-    void AdvanceSequence()
+    protected virtual void AdvanceSequence()
     {
         _isWaitingForNext = false;
         if (_nextIndicator != null) 
@@ -71,7 +74,7 @@ public class TextSequenceManager : MonoBehaviour
         }
     }
 
-    void PlayLine(int index)
+    protected void PlayLine(int index)
     {
         TextEvents.OnTextRequested?.Invoke(_dialogueLines[index]);
     }
