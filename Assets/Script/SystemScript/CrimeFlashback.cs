@@ -10,7 +10,7 @@ public class CrimeFlashback : TextSequenceManager
 
     void OnEnable()
     {
-        MovementScript.instance.dialoguecondition = MovementScript.OnDialogue.yes;
+        MovementScript.instance.show_button = MovementScript.Showmovementbutton.yes;
         TextEvents.OnTextRevealCompleted += HandleTextCompleted;
         
         _currentIndex = 0;
@@ -40,7 +40,7 @@ public class CrimeFlashback : TextSequenceManager
            crimesceneImage.SetActive(false);
            evidence.SetActive(false);
            CollectedItem.instance.additem();
-           MovementScript.instance.dialoguecondition = MovementScript.OnDialogue.no;
+           MovementScript.instance.show_button = MovementScript.Showmovementbutton.no;
         }
     }
 }

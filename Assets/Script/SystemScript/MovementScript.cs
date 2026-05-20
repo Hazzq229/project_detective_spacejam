@@ -25,12 +25,12 @@ public class MovementScript : MonoBehaviour
     [SerializeField] float transition_duration = 1f;
     [SerializeField] GameObject room1;
     [SerializeField] GameObject room2;
-    public enum OnDialogue
+    public enum Showmovementbutton
     {
         yes,
         no,
     }
-    [HideInInspector]public OnDialogue dialoguecondition = OnDialogue.no;
+    [HideInInspector]public Showmovementbutton show_button = Showmovementbutton.no;
     bool isinroom1 = true;
     bool isinroom2 = false;
     // Start is called before the first frame update
@@ -40,7 +40,7 @@ public class MovementScript : MonoBehaviour
     }
     void checkdialougecondition()
     {
-        if (dialoguecondition == OnDialogue.yes)
+        if (show_button == Showmovementbutton.yes)
         {
            
          button_room1.SetActive(false);
