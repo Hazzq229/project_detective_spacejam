@@ -1177,10 +1177,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5f5e976343d9934b9e873725651e016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button_room1: {fileID: 603143826}
+  button_room2: {fileID: 109072639}
   blackScreen: {fileID: 2135200865}
   transition_duration: 0.5
   room1: {fileID: 1096311827}
   room2: {fileID: 442887532}
+  show_button: 1
 --- !u!4 &670078269
 Transform:
   m_ObjectHideFlags: 0
