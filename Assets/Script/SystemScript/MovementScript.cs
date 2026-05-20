@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,20 +6,64 @@ using UnityEngine.UIElements;
 
 public class MovementScript : MonoBehaviour
 {
-    [SerializeField] Button button_room1;
-    [SerializeField] Button button_room2;
+    public static MovementScript instance;
+     void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    [SerializeField] GameObject button_room1;
+    [SerializeField] GameObject button_room2;
     [SerializeField] CanvasGroup blackScreen;
     [SerializeField] float transition_duration = 1f;
     [SerializeField] GameObject room1;
     [SerializeField] GameObject room2;
-
+    public enum OnDialogue
+    {
+        yes,
+        no,
+    }
+    [HideInInspector]public OnDialogue dialoguecondition = OnDialogue.no;
+    bool isinroom1 = true;
+    bool isinroom2 = false;
     // Start is called before the first frame update
     void Start()
     {
         
     }
+    void checkdialougecondition()
+    {
+        if (dialoguecondition == OnDialogue.yes)
+        {
+           
+         button_room1.SetActive(false);
+            button_room2.SetActive(false);
+        }
+        else
+        {
+          if(isinroom1)
+            {
+                button_room1.SetActive(true);
+                button_room2.SetActive(false);
+            }
+            else if(isinroom2)
+            {
+                button_room1.SetActive(false);
+                button_room2.SetActive(true);
+            }
+        }
+    }
     public void movetoroom1()
     {
+        isinroom1 = true;
+        isinroom2 = false;
         StopAllCoroutines();
         StartCoroutine(movementtransition());
         room1.SetActive(true);
@@ -26,6 +71,8 @@ public class MovementScript : MonoBehaviour
     }
     public void movetoroom2()
     {
+        isinroom2 = true;
+        isinroom1 = false;
         StopAllCoroutines();
         StartCoroutine(movementtransition());
         room1.SetActive(false);
@@ -59,6 +106,6 @@ public class MovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        checkdialougecondition();
     }
 }

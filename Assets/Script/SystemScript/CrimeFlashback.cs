@@ -7,8 +7,10 @@ public class CrimeFlashback : TextSequenceManager
 
     [SerializeField] GameObject crimesceneImage;
     [SerializeField] GameObject evidence;
+
     void OnEnable()
     {
+        MovementScript.instance.dialoguecondition = MovementScript.OnDialogue.yes;
         TextEvents.OnTextRevealCompleted += HandleTextCompleted;
         
         _currentIndex = 0;
@@ -38,6 +40,7 @@ public class CrimeFlashback : TextSequenceManager
            crimesceneImage.SetActive(false);
            evidence.SetActive(false);
            CollectedItem.instance.additem();
+           MovementScript.instance.dialoguecondition = MovementScript.OnDialogue.no;
         }
     }
 }
