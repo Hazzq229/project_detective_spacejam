@@ -2,18 +2,15 @@
 // Credits to ChristinaCreatesGames for the tutorial & script example  
 using System;
 using System.Collections;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(TMP_Text))]
 public class TypewriterEffect : MonoBehaviour
 {
-    public static TypewriterEffect Instance ;
-
-    
     TMP_Text _textBox;
 
-    
     // Typewriter Functionality
     int _currentVisibleCharacterIndex;
     Coroutine _typewriterCoroutine;
@@ -29,13 +26,14 @@ public class TypewriterEffect : MonoBehaviour
     // Skip Functionality
     [Header("Skip Options")]
     [SerializeField] bool quickSkip;
-    [SerializeField] [Min(1)] int skipSpeedup = 5;
+    [SerializeField][Min(1)] int skipSpeedup = 5;
     public bool CurrentlySkipping { get; private set; }
     WaitForSeconds _skipDelay;
 
     // Event Functionality 
     WaitForSeconds _textboxFullEventDelay;
-    [SerializeField] [Range(0.1f, 0.5f)] float sendDoneDelay = 0.25f;
+    [SerializeField][Range(0.1f, 0.5f)] float sendDoneDelay = 0.25f;
+    bool _isPaused = false;
 
     void Awake()
     {
@@ -43,7 +41,7 @@ public class TypewriterEffect : MonoBehaviour
 
         _simpleDelay = new WaitForSeconds(1 / charactersPerSecond);
         _interpunctuationDelay = new WaitForSeconds(interpunctuationDelay);
-        
+
         _skipDelay = new WaitForSeconds(1 / (charactersPerSecond * skipSpeedup));
         _textboxFullEventDelay = new WaitForSeconds(sendDoneDelay);
     }
@@ -51,11 +49,20 @@ public class TypewriterEffect : MonoBehaviour
     void OnEnable()
     {
         TextEvents.OnTextRequested += PrepareForNewText;
+        TextEvents.OnPauseRequested += PauseTypewriter;
+        TextEvents.OnResumeRequested += ResumeTypewriter;
     }
+
+    // Tambahkan di OnDisable
     void OnDisable()
     {
         TextEvents.OnTextRequested -= PrepareForNewText;
+        TextEvents.OnPauseRequested -= PauseTypewriter;
+        TextEvents.OnResumeRequested -= ResumeTypewriter;
     }
+
+    void PauseTypewriter() => _isPaused = true;
+    void ResumeTypewriter() => _isPaused = false;
 
     #region Skip Functionality
     void Update()
@@ -70,7 +77,7 @@ public class TypewriterEffect : MonoBehaviour
     {
         if (CurrentlySkipping)
             return;
-        
+
         CurrentlySkipping = true;
 
         if (!quickSkip)
@@ -78,6 +85,8 @@ public class TypewriterEffect : MonoBehaviour
             StartCoroutine(SkipSpeedupReset());
             return;
         }
+
+        CheckLinkEvent(_textBox.textInfo);
 
         StopCoroutine(_typewriterCoroutine);
         _textBox.maxVisibleCharacters = _textBox.textInfo.characterCount;
@@ -113,13 +122,13 @@ public class TypewriterEffect : MonoBehaviour
     private IEnumerator Typewriter()
     {
         yield return null;
-
         _textBox.ForceMeshUpdate();
-
         TMP_TextInfo textInfo = _textBox.textInfo;
 
         while (_currentVisibleCharacterIndex < textInfo.characterCount + 1)
         {
+            while (_isPaused) yield return null;
+
             var lastCharacterIndex = textInfo.characterCount - 1;
 
             if (_currentVisibleCharacterIndex >= lastCharacterIndex)
@@ -134,7 +143,9 @@ public class TypewriterEffect : MonoBehaviour
             char character = textInfo.characterInfo[_currentVisibleCharacterIndex].character;
 
             _textBox.maxVisibleCharacters++;
-            
+
+            CheckLinkEvent(textInfo);
+
             if (!CurrentlySkipping &&
                 (character == '?' || character == '.' || character == ',' || character == ':' ||
                     character == ';' || character == '!' || character == '-'))
@@ -145,9 +156,23 @@ public class TypewriterEffect : MonoBehaviour
             {
                 yield return CurrentlySkipping ? _skipDelay : _simpleDelay;
             }
-            
+
             TextEvents.OnCharacterRevealed?.Invoke(character);
             _currentVisibleCharacterIndex++;
+        }
+    }
+    #endregion
+
+    #region Link Event
+    void CheckLinkEvent(TMP_TextInfo textInfo)
+    {
+        if (textInfo.linkCount < 0)
+            return;
+
+        foreach (var linkInfo in textInfo.linkInfo.Take(textInfo.linkCount))
+        {
+            if (linkInfo.linkTextfirstCharacterIndex >= _currentVisibleCharacterIndex)
+                TextEvents.OnLinkTriggered?.Invoke(linkInfo.GetLinkID());
         }
     }
     #endregion
