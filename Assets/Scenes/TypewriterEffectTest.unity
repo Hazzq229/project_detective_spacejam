@@ -480,7 +480,7 @@ MonoBehaviour:
 
     The victim name is  Jack, 51 years old
     Manager, found dead in a trash can  back of his restaurant'
-  - '<link="BG_Mugshot"> </link> , <link="Anim_SuspectIntroAnim_FadeOut"> </link>Currently,
+  - '<link="BG_Mugshot"> </link>  <link="Anim_SuspectIntroAnim_FadeOut"> </link>Currently,
     there are two suspects in custody '
   - <link="Anim_SuspectIntroAnim_HighlightCashier"> </link>First Suspect is Anna,
     26 years old, work as a cashier. she quiet didnt like her boss because always
