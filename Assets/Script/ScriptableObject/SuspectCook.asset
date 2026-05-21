@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c02fa35d81c78108f4afbe88c0d74b, type: 3}
+  m_Name: SuspectCook
+  m_EditorClassIdentifier: 
+  suspectName: William
+  alibi: Cleaning the Kitchen
+  correctWeaponKeyword: FryingPan
+  isGuilty: 1
+  explanationText: Guilty of murdering Jack with a frying pan. He cut the electricity
+    to prevent anyone from witnessing the act. He did this because he disliked the
+    way his boss treated him and wanted him out.

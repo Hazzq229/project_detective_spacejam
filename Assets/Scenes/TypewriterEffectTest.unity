@@ -226,81 +226,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &56796901
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 56796902}
-  - component: {fileID: 56796904}
-  - component: {fileID: 56796903}
-  m_Layer: 5
-  m_Name: Victim
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &56796902
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 56796901}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 562548544}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 102}
-  m_SizeDelta: {x: 260, y: 578}
-  m_Pivot: {x: 0.5, y: 0}
---- !u!114 &56796903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 56796901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d6abe80eecd5cc54989246c71f37480f, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &56796904
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 56796901}
-  m_CullTransparentMesh: 1
 --- !u!1 &93327608
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,24 +397,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueLines:
-  - In the Night Of Haloween... You just get the positon as the new detective in
-    Kesington Police Departement
-  - So you're given a job by the depertament as your first investigation. There happens
-    to be a murder in Kesington Waffle House
-  - '<link="Anim_victimshow> </link>
-
-    The victim name is  Jack, 51 years old
-    Manager, found dead in a trash can  back of his restaurant'
-  - '<link="BG_Mugshot"> </link>  <link="Anim_SuspectIntroAnim_FadeOut"> </link>Currently,
-    there are two suspects in custody '
-  - <link="Anim_SuspectIntroAnim_HighlightCashier"> </link>First Suspect is Anna,
-    26 years old, work as a cashier. she quiet didnt like her boss because always
-    getting her salary cut
-  - <link="Anim_SuspectIntroAnim_HighlightCook"> </link>Second Suspect is WIliam,
-    27 Years old. work as cook. he is about to be fired because of his lazzines and
-    uneffcieny doing his job.
-  - As, the new detective in Kesington Police Departement, your job is to collect
-    all evidences in the crime scene and identify who murder Jack
+  - Mayat ditemukan di tempat sampah belakang restoran.
+  - <link="BG_Mugshot"> </link> Saat ini, <link="Anim_SuspectIntroAnim_FadeOut">
+    </link>terdapat dua orang terduga pelaku yang sedang ditahan.
+  - '<link="Anim_SuspectIntroAnim_HighlightCashier"> </link>Terduga pertama adalah
+    Anna, penjaga kasir yang berkostum penyihir. '
+  - <link="Anim_SuspectIntroAnim_HighlightCook"> </link>Terduga lainnya adalah William,
+    koki restoran ini.
   _nextIndicator: {fileID: 1618781250}
 --- !u!114 &289839908
 MonoBehaviour:
@@ -508,7 +422,7 @@ MonoBehaviour:
   _sequenceAnimator: {fileID: 562548547}
   _backgroundDatabase:
   - keyword: BG_LokasiPenemuanJasad
-    image: {fileID: 21300000, guid: 979de714d4cd3a93aae9c5bd012eee3f, type: 3}
+    image: {fileID: 21300000, guid: 5085ce44165aa8364b8ca1c554f5068d, type: 3}
   - keyword: BG_Mugshot
     image: {fileID: 21300000, guid: 979de714d4cd3a93aae9c5bd012eee3f, type: 3}
   _fadeDuration: 1
@@ -631,7 +545,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 56796902}
   - {fileID: 1441362750}
   - {fileID: 1301142926}
   m_Father: {fileID: 93327609}
@@ -743,7 +656,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 979de714d4cd3a93aae9c5bd012eee3f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5085ce44165aa8364b8ca1c554f5068d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -935,7 +848,7 @@ RectTransform:
   m_GameObject: {fileID: 1301142925}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.325, y: 1.325, z: 1.325}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 562548544}
@@ -965,7 +878,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8d6f957750fc6ab4d98111c1050a501e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d7ed2cb984a25741d9c93d7e45f7f9fc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1010,7 +923,7 @@ RectTransform:
   m_GameObject: {fileID: 1441362749}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.325, y: 1.325, z: 1.325}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 562548544}
@@ -1040,7 +953,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66ed3c4d152abef498bbeeb94a96ed52, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06718bc599c34dfa0963903b12d30393, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1576,7 +1489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2115303604183817037, guid: 73d902299ffceca6c9838b3e9c22f696, type: 3}
       propertyPath: _changeScenePrompt
-      value: Click Anywhere to Continue
+      value: Click any button to continue
       objectReference: {fileID: 0}
     - target: {fileID: 7706646043047617239, guid: 73d902299ffceca6c9838b3e9c22f696, type: 3}
       propertyPath: m_Name
