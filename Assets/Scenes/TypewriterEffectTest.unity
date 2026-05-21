@@ -1487,6 +1487,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2115303604183817037, guid: 73d902299ffceca6c9838b3e9c22f696, type: 3}
+      propertyPath: _changeScenePrompt
+      value: Click any button to continue
+      objectReference: {fileID: 0}
     - target: {fileID: 7706646043047617239, guid: 73d902299ffceca6c9838b3e9c22f696, type: 3}
       propertyPath: m_Name
       value: IntersceneFadeTransition
