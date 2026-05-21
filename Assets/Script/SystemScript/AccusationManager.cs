@@ -101,7 +101,7 @@ public class AccusationManager : MonoBehaviour
     {
         _confirmAccuseButton.SetActive(false);
         _cancelButton.SetActive(false);
-
+        AudioAccustion.instance.PlayStampSound();
         if (_selectedSuspect.isGuilty)
         {
             _stampAnimator.Play("Stamp_Red");
@@ -130,6 +130,7 @@ public class AccusationManager : MonoBehaviour
     {
         if (_currentState == AccusationState.ShowingExplanation)
         {
+            AudioAccustion.instance.PlayStampSound();
             if (_selectedSuspect.isGuilty)
             {
                 _stampAnimator.Play("Stamp_Green");
