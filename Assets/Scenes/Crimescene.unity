@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 304607622}
   - component: {fileID: 304607621}
   m_Layer: 5
-  m_Name: Example
+  m_Name: Cashier Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1362,8 +1362,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueLines:
-  - This Is an example of criminalscene
-  - Click next to move
+  - '[30/10/1953 20:00] What Are you doing?<Jack>'
+  - '[30/10/1953 20:02] Holy, Cow! (closing the register immedieatly)<****>'
   _nextIndicator: {fileID: 353875368}
   crimesceneImage: {fileID: 1123715667}
   evidence: {fileID: 304607619}
@@ -1533,8 +1533,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Item: 5/5'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0103357b63b5a67fa960160e27d9bd74, type: 2}
+  m_sharedMaterial: {fileID: -8362772488635360124, guid: 0103357b63b5a67fa960160e27d9bd74, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2054,7 +2054,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 982d64d087da2e3acb368c3e047bacbf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0103357b63b5a67fa960160e27d9bd74, type: 2}
   m_sharedMaterial: {fileID: -6560841024490807444, guid: 982d64d087da2e3acb368c3e047bacbf, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2118,7 +2118,7 @@ MonoBehaviour:
   m_margin: {x: 100, y: 50, z: 100, w: 50}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1872233870
