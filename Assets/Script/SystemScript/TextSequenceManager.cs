@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class TextSequenceManager : MonoBehaviour
 {
@@ -10,7 +9,7 @@ public class TextSequenceManager : MonoBehaviour
 
     [SerializeField] protected List<string> _dialogueLines;
     [SerializeField] protected GameObject _nextIndicator;
-    
+
     protected int _currentIndex = 0;
     protected bool _isWaitingForNext = false;
 
@@ -28,13 +27,11 @@ public class TextSequenceManager : MonoBehaviour
 
     protected void StartSequence()
     {
-        if (_nextIndicator != null) 
+        if (_nextIndicator != null)
             _nextIndicator.SetActive(false);
 
         if (_dialogueLines.Count > 0)
         {
-            
-            
             PlayLine(_currentIndex);
         }
     }
@@ -43,7 +40,7 @@ public class TextSequenceManager : MonoBehaviour
     {
         if (!_isWaitingForNext) return;
 
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0))
         {
             AdvanceSequence();
         }
@@ -52,14 +49,14 @@ public class TextSequenceManager : MonoBehaviour
     protected void HandleTextCompleted()
     {
         _isWaitingForNext = true;
-        if (_nextIndicator != null) 
+        if (_nextIndicator != null)
             _nextIndicator.SetActive(true);
     }
 
     protected virtual void AdvanceSequence()
     {
         _isWaitingForNext = false;
-        if (_nextIndicator != null) 
+        if (_nextIndicator != null)
             _nextIndicator.SetActive(false);
 
         _currentIndex++;
