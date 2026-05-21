@@ -14,12 +14,19 @@ public class CrimeFlashback : TextSequenceManager
         TextEvents.OnTextRevealCompleted += HandleTextCompleted;
         
         _currentIndex = 0;
-        StartSequence();
+        _isWaitingForNext = false;
+        Invoke(nameof(StartSequence), 0.01f);
     }
 
     void OnDisable()
     {
         TextEvents.OnTextRevealCompleted -= HandleTextCompleted;
+        CancelInvoke(nameof(StartSequence));
+    }
+
+    public void PlayCrimeFlashback()
+    {
+        gameObject.SetActive(true);
     }
 
     protected override void AdvanceSequence()
