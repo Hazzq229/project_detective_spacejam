@@ -1700,7 +1700,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1b41018a635c6534f8dfd9702bed387a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a4b1b9b398dc864aa08d968a92631f2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1900,13 +1900,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 999320424}
     - target: {fileID: 2839252054513534462, guid: a1d70fadb99b5d629936ea363f7aa5d9, type: 3}
+      propertyPath: _dialogueLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2839252054513534462, guid: a1d70fadb99b5d629936ea363f7aa5d9, type: 3}
       propertyPath: _dialogueLines.Array.data[0]
-      value: '[30/10/1953 20:02] Enough Of This! im Calling the cops!<Jack>'
+      value: '[30/10/1953 20:02] What Are You Doing!!<Jack>'
       objectReference: {fileID: 0}
     - target: {fileID: 2839252054513534462, guid: a1d70fadb99b5d629936ea363f7aa5d9, type: 3}
       propertyPath: _dialogueLines.Array.data[1]
-      value: '[30/10/1953 20:02] Yea Go on Old man! im tired of you always underpaid
-        me (Grab the Baseball bat) <****>'
+      value: '[30/10/1953 20:02] Holy Cow! (put the money back to the registy)<***>'
       objectReference: {fileID: 0}
     - target: {fileID: 2839252054513534462, guid: a1d70fadb99b5d629936ea363f7aa5d9, type: 3}
       propertyPath: _dialogueLines.Array.data[2]
