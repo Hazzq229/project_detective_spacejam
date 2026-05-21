@@ -116,7 +116,7 @@ public class TypewriterEffect : MonoBehaviour
         _textBox.text = newText;
         _textBox.maxVisibleCharacters = 0;
         _currentVisibleCharacterIndex = 0;
-
+        
         _typewriterCoroutine = StartCoroutine(Typewriter());
     }
     private IEnumerator Typewriter()
@@ -132,14 +132,14 @@ public class TypewriterEffect : MonoBehaviour
             var lastCharacterIndex = textInfo.characterCount - 1;
 
             if (_currentVisibleCharacterIndex >= lastCharacterIndex)
-            {
+            {  AudioManager.instance.PlayTypingSound();
                 _textBox.maxVisibleCharacters++;
                 yield return _textboxFullEventDelay;
                 TextEvents.OnTextRevealCompleted?.Invoke();
                 _readyForNewText = true;
                 yield break;
             }
-
+            
             char character = textInfo.characterInfo[_currentVisibleCharacterIndex].character;
 
             _textBox.maxVisibleCharacters++;
@@ -156,7 +156,7 @@ public class TypewriterEffect : MonoBehaviour
             {
                 yield return CurrentlySkipping ? _skipDelay : _simpleDelay;
             }
-
+          
             TextEvents.OnCharacterRevealed?.Invoke(character);
             _currentVisibleCharacterIndex++;
         }

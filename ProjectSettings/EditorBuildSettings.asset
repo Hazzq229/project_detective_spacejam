@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 22d136010eb2c794ca66578b49857ada
+  - enabled: 1
+    path: Assets/Scenes/Introduction.unity
+    guid: 831a33d225285dcc181df2328f1298bf
+  - enabled: 1
     path: Assets/Scenes/Crimescene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-    path: Assets/Scenes/TypewriterEffectTest.unity
-    guid: 831a33d225285dcc181df2328f1298bf
   m_configObjects: {}
